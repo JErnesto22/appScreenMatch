@@ -1,4 +1,6 @@
 import com.coralcompany.screenmatch.calculos.CalculadoraDeTiempo;
+import com.coralcompany.screenmatch.calculos.FiltroRecomendacion;
+import com.coralcompany.screenmatch.modelos.Episodio;
 import com.coralcompany.screenmatch.modelos.Pelicula;
 import com.coralcompany.screenmatch.modelos.Serie;
 
@@ -50,7 +52,18 @@ public class Principal {
                 calculadora.getTiempoTotal() + " minutos");
 
 
-        };
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra(newPelicula);
+
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNombre("The mentalist");
+        episodio.setSerie(casaDragon);
+        episodio.setTotalVisualizaciones(50);
+
+        filtroRecomendacion.filtra(episodio);
+    };
 
 
 
