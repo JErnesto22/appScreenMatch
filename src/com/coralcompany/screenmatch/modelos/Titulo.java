@@ -1,12 +1,22 @@
 package com.coralcompany.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     private String titulo;
     private int fechaDeLanzamiento;
     private int duracion;
     private boolean includidoEnElPlan;
     private double sumaDeLasEvaluaciones;
     private int totalDeEvaluaciones;
+
+    public Titulo(String titulo, int fechaDeLanzamiento) {
+        this.titulo = titulo;
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+
+        /*
+        Constructor padre que recibe  el titulo y la fecha de lanzamiento
+         */
+
+    }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -58,5 +68,10 @@ public class Titulo {
 
     public double calculaMedia(){
         return sumaDeLasEvaluaciones / totalDeEvaluaciones;
+    }
+
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getTitulo().compareTo(otroTitulo.getTitulo());
     }
 }
